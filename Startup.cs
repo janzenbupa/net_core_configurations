@@ -34,6 +34,9 @@ namespace NetCore_configuration
             services.AddIdentity<ApplicationUser, IdentityRole>()  //default microsoft identity
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddTransient<IEmailSender, EmailSender>();  //this is an example of adding a service to a controller,
+                                                                    //check the AccountsController.cs to see
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
